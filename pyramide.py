@@ -1,31 +1,18 @@
 def main():
-    hoehe, breite = get_hoehe_breite()
+    hoehe = get_wert("Höhe")
+    breite = get_wert("Breite")
     pyramide_bauen(hoehe, breite)
 
-def get_hoehe_breite():
+def get_wert(seite):
     while True:
         try:
-            hoehe = int(input(f"Gib die Höhe der Pyramide ein: "))
+            seite = int(input(f"Gib die {seite} der Pyramide ein: "))
         except ValueError:
             print("Gibt eine positive Ganzzahl > als 0 ein!")
             continue
-        if hoehe > 0:
-            break
-        else:
-            print("Gibt eine positive Ganzzahl > als 0 ein!")
-            continue
-    while True:
-        try:
-            breite = int(input(f"Gib die Breite der Pyramide ein: "))
-        except ValueError:
-            print("Gibt eine positive Ganzzahl > als 0 ein!")
-            continue
-        if breite > 0:
-            break
-        else:
-            print("Gibt eine positive Ganzzahl > als 0 ein!")
-            continue
-    return hoehe, breite
+        if seite > 0:
+            return seite
+        print("Gibt eine positive Ganzzahl > als 0 ein!")
 
 def pyramide_bauen(hoehe, breite):
     if hoehe <= breite:
